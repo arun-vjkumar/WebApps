@@ -4,6 +4,9 @@ const Schema = mongoose.Schema
 
 
 export const ContactSchema = new Schema({
+    _id: {
+        type: Schema.Types.ObjectId,
+    },
     firstName: {
         type: String,
         required: 'Enter a first name'
