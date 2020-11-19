@@ -1,4 +1,4 @@
-import { ConflictException, Inject } from "@nestjs/common";
+import { ConflictException } from "@nestjs/common";
 import { EntityRepository, Repository } from "typeorm";
 import * as bcrypt from "bcrypt";
 import { AuthCredentialsDto } from "./dtos/auth-credentials.dto";
