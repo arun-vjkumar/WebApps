@@ -15,8 +15,8 @@ export class AuthService {
     ) { }
 
     async signup(authCredentialsDto: AuthCredentialsDto): Promise<void> {
-        // const userId = await this.counterService.getNextId('user')
-        return this.userRepository.signup("U1", authCredentialsDto);
+        const userId = await this.counterService.getNextId('user')
+        return this.userRepository.signup(userId, authCredentialsDto);
     }
 
     async signin(authCredentialsDto: AuthCredentialsDto): Promise<{accessToken: string}> {

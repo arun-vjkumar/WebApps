@@ -8,10 +8,10 @@ export class CounterService {
     constructor(@InjectRepository(CounterRepository) private counterRepository: CounterRepository){}
 
     async getNextId(entity: string): Promise<string> {
-        const counter = await this.counterRepository.findOne({"entity": entity});
+        let counter = await this.counterRepository.findOne({"entity": entity});
         var max = counter.max;
         counter.max = max + 1;
-        await counter.save();
+        await this.counterRepository.update({"_id": counter._id}, {"max": (counter.max)})
         return `${entity.toUpperCase()[0]}${max}`
     }
 }

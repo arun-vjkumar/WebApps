@@ -12,6 +12,6 @@ import { TasksService } from './tasks.service';
     CounterModule
   ],
   controllers: [TasksController],
-  providers: [TasksService]
+  providers: [TasksService],
 })
 export class TasksModule {}

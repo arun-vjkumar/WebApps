@@ -34,3 +34,4 @@ $ npm run test:cov
   - While creating the user it creates but throws the exception
   - We need counter for id's i have created a counter which retreives the counter obj but while saving it back it breaks Ex for user "U1, U2" and for task "T1, T2" etc.,
   - We need to have a clear vision of which are the common modules and how is different modules services going to commuinicate with each other
+  - fixed the counter by using update function but still erroring out while creating the user "[ExceptionsHandler] Cannot read property 'createValueMap' of undefined"
