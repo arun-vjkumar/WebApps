@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CounterModule } from 'src/counter/counter.module';
 import { TaskRepository } from './task.repository';
@@ -9,9 +9,9 @@ import { TasksService } from './tasks.service';
   imports: [
     TypeOrmModule.forFeature([TaskRepository]),
     TasksModule,
-    CounterModule
+    forwardRef(() => CounterModule)
   ],
   controllers: [TasksController],
-  providers: [TasksService]
+  providers: [TasksService],
 })
 export class TasksModule {}

@@ -1,9 +1,9 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CounterModule } from 'src/counter/counter.module';
-import { CounterService } from 'src/counter/counter.service';
+import { CounterRepository } from 'src/counter/counter.repository';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { JwtStrategy } from './jwt.strategy';
@@ -18,7 +18,7 @@ import { UserRepository } from './user.repository';
         expiresIn: 3600
       },
     }),
-    TypeOrmModule.forFeature([UserRepository]),
+    TypeOrmModule.forFeature([UserRepository, CounterRepository]),
     CounterModule
   ],
   controllers: [AuthController],
