@@ -4,7 +4,7 @@
   "description": "Gives Weather and News Information",
   "main": "dist/app.js",
   "scripts": {
-    "start": "tsc && node dist/app.js",
+    "start": "tsc && node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Arun V",
@@ -15,6 +15,7 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "express": "^4.17.1"
   }
 }

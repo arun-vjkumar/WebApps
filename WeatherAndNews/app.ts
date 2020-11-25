@@ -1,15 +1,19 @@
 import express from 'express';
+import { WeatherReportRoutes } from './routes/weatherReportRoutes';
 
-const app = express();
-const port = 3000;
+class App {
+    public app : express.Application;
+    public weatherReportRoutes: WeatherReportRoutes;
 
-app.get('/', (req, res) => {
-    res.send('Welcome To View Weather and News!');
-});
-
-app.listen(port, err => {
-    if (err) {
-        return console.error(err);
+    constructor() {
+        this.app = express();
+        this.weatherReportRoutes = new WeatherReportRoutes(this.app);
+        this.initializeRoutes();
     }
-    return console.log(`server is listening on ${port}`);
-});
+
+    initializeRoutes() {
+        this.weatherReportRoutes.routes();
+    }
+}
+
+export default new App().app; 
